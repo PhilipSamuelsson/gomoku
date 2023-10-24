@@ -7,18 +7,14 @@ export default function useBoard() {
     const [board, setBoard] = useState(Array(SIZE).fill(Array(SIZE).fill(null)))
     const [winner, setWinner] = useState()
 
-
     const isBlackMoving = useRef(true)
-
 
     const lastRow = useRef()
     const lastCol = useRef()
 
-
     const updateBoard = useCallback((y, x, newValue) => {
         setBoard((board) =>
             board.map((row, currentY) => {
-
                 if (currentY !== y) return row
 
                 return row.map((col, currentX) => {
@@ -31,7 +27,6 @@ export default function useBoard() {
 
     const handleChessClick = useCallback(
         (row, col, value) => {
-
             if (value) return
 
             lastRow.current = row
